@@ -6,11 +6,12 @@ import { Property } from '@/types/property'
 import { getPropertyList } from '../server/propertyService'
 import { useSearchParams } from 'next/navigation'
 
-interface PropertyListViewProps {
-  initialParams: { [key: string]: string }
-}
+// interface PropertyListViewProps {
+//   initialParams: { [key: string]: string }
+// }
 
-export default function PropertyListView({ initialParams }: PropertyListViewProps) {
+// export default function PropertyListView({ initialParams }: PropertyListViewProps) {
+export default function PropertyListView() {
   const [properties, setProperties] = useState<Property[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)

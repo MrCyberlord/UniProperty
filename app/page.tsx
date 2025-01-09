@@ -1,18 +1,20 @@
 import PropertyListView from '@/components/client/PropertyListView';
 import FilterPanel from '@/components/client/FilterPanel';
 
-export default async function HomePage({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const cleanParams: { [key: string]: string } = {};
+export default async function HomePage(
+//   {
+//   searchParams,
+// }: {
+//   searchParams: { [key: string]: string | string[] | undefined };
+//   }
+) {
+  // const cleanParams: { [key: string]: string } = {};
 
-  for (const [key, value] of Object.entries(searchParams)) {
-    if (typeof value === 'string' && value.trim() !== '') {
-      cleanParams[key] = value.trim();
-    }
-  }
+  // for (const [key, value] of Object.entries(searchParams)) {
+  //   if (typeof value === 'string' && value.trim() !== '') {
+  //     cleanParams[key] = value.trim();
+  //   }
+  // }
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -22,7 +24,8 @@ export default async function HomePage({
           <FilterPanel />
         </aside>
         <div className="lg:col-span-3">
-          <PropertyListView initialParams={cleanParams} />
+          {/* <PropertyListView initialParams={cleanParams} /> */}
+          <PropertyListView  />
         </div>
       </div>
     </main>
