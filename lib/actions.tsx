@@ -1,4 +1,3 @@
-// lib/actions.ts
 'use server'
 
 export async function searchProperties(filters: { [key: string]: string | undefined }) {
