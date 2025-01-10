@@ -5,22 +5,29 @@ import Image from 'next/image'
 async function getProperty(id: string): Promise<Property | null> {
   try {
     const response = await fetch(`http://localhost:3000/api/properties/${id}`, {
-      cache: 'no-store'
+      next: { revalidate: 60 },
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
-    if (!response.ok) return null
-    return response.json()
+    
+    if (!response.ok) {
+      if (response.status === 404) return null
+      throw new Error('Failed to fetch property')
+    }
+    
+    const data = await response.json()
+    return data as Property
   } catch (error) {
     console.error('Error fetching property:', error)
     return null
   }
 }
 
-export default async function PropertyPage({ 
-  params 
-}: { 
-  params: { id: string } 
-}) {
-  const property = await getProperty(params.id)
+
+export default async function PropertyPage({ params }: { params: Promise<{ id: string }>}) {
+  const {id} = await params;
+  const property = await getProperty(id)
 
   if (!property) {
     notFound()

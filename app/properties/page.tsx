@@ -1,12 +1,14 @@
-// app/properties/page.tsx
 import { searchProperties } from "@/lib/actions";
+
 
 export default async function PropertiesPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | undefined }> ;
 }) {
-  const properties = await searchProperties(searchParams);
+  console.log(await searchParams);
+
+  const properties = await searchProperties(await searchParams);
 
   return (
     <div>

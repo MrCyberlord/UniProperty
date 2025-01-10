@@ -21,4 +21,10 @@ export interface PropertySearchParams {
   status?: Property['status']
   page: number
   limit: number
+}
+
+export type RouteContext = {
+  params: {
+    id: string
+  }
 } 
