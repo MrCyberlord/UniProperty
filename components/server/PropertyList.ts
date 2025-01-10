@@ -2,7 +2,7 @@ import { Property } from '@/types/property'
 
 export async function getPropertyList(searchParams: URLSearchParams): Promise<Property[]> {
   try {
-    const response = await fetch(`http://localhost:3000/api/properties?${searchParams}`, {
+    const response = await fetch(`https://uni-property.vercel.app/api/properties?${searchParams}`, {
       cache: 'no-store'
     })
     if (!response.ok) throw new Error('Failed to fetch properties')

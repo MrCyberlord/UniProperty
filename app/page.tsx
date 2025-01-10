@@ -30,7 +30,6 @@ export default async function HomePage(
         </Suspense>
         </aside>
         <div className="lg:col-span-3">
-          {/* <PropertyListView initialParams={cleanParams} /> */}
           <Suspense fallback={<div>Loading...</div>}>
           <PropertyListView  />
           </Suspense>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 async function getProperty(id: string): Promise<Property | null> {
   try {
-    const response = await fetch(`http://localhost:3000/api/properties/${id}`, {
+    const response = await fetch(`https://uni-property.vercel.app/api/properties/${id}`, {
       next: { revalidate: 60 },
       headers: {
         'Content-Type': 'application/json',
