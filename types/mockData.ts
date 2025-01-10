@@ -128,7 +128,7 @@ export const mockProperties: Property[] = [
         baths: 3,
         area: 2000
       },
-      images: ['/images/apartment9.jpg'],
+      images: ['/images/apartment10.jpg'],
       status: 'sold'
     }
   ]
